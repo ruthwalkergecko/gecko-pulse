@@ -1,0 +1,21 @@
+{
+  "name": "gecko-pulse-slack",
+  "version": "1.0.0",
+  "description": "Weekly pulse check Slack bot for Gecko",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.17.1",
+    "googleapis": "^131.0.0",
+    "dotenv": "^16.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
