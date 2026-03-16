@@ -1,2 +1,2 @@
 # gecko-pulse
-Weekly team pulse system for Gecko
+Weekly team pulse system for Gecko 
