@@ -28,7 +28,7 @@ async function fetchSheetData() {
   const [responsesResult] = await Promise.all([
     sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: 'Responses!A2:I', // Skip header row
+      range: 'Responses!A2:J', // Skip header row
     }),
   ])
 
