@@ -1,21 +1,29 @@
 {
-  "name": "gecko-pulse-slack",
-  "version": "1.0.0",
-  "description": "Weekly pulse check Slack bot for Gecko",
-  "main": "index.js",
+  "name": "gecko-pulse",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@slack/bolt": "^3.17.1",
-    "googleapis": "^131.0.0",
-    "dotenv": "^16.4.1"
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "googleapis": "^140.0.1",
+    "lucide-react": "^0.400.0",
+    "next": "^14.2.5",
+    "next-auth": "^4.24.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6"
   }
 }
