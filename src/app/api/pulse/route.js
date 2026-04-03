@@ -52,8 +52,9 @@ async function fetchSheetData() {
         comment: (row[4] || '').trim(),
         rotatingScore: parseFloat(row[5]) || null,
         rotatingQuestion: (row[6] || '').trim(),
-        department: (row[7] || '').trim(),
-        manager: (row[8] || '').trim(),
+        rotatingComment: (row[7] || '').trim(),
+        department: (row[8] || '').trim(),
+        manager: (row[9] || '').trim(),
       }
     })
     .filter(r => r.weekScore !== null) // Must have a score

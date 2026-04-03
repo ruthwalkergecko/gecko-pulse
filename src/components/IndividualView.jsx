@@ -247,7 +247,7 @@ function WeekEntry({ week }) {
         {hasRotating && (
           <div className="flex items-start gap-2.5 pt-2 border-t border-gecko-border/50">
             <HelpCircle size={12} className="text-gecko-subtext mt-0.5 flex-shrink-0" />
-            <div>
+            <div className="flex-1">
               <p className="text-xs text-gecko-subtext mb-1">{week.rotatingQuestion}</p>
               <span
                 className="text-xs font-semibold px-2 py-0.5 rounded"
@@ -258,6 +258,11 @@ function WeekEntry({ week }) {
               >
                 {formatScore(week.rotatingScore)}
               </span>
+              {week.rotatingComment?.trim() && (
+                <p className="text-xs text-gecko-white/70 leading-relaxed mt-1.5 italic">
+                  &ldquo;{week.rotatingComment}&rdquo;
+                </p>
+              )}
             </div>
           </div>
         )}

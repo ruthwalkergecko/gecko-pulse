@@ -225,11 +225,20 @@ export default function TeamView({
         <EmployeeGrid employees={employees} onSelect={onSelectEmployee} />
       </div>
 
-      {/* ── Comments ── */}
+      {/* ── Week comments ── */}
       <CommentsFeed
         responses={filteredResponses}
-        showAuthor={currentUser?.access !== 'manager'} // managers see comments but not necessarily who said what if you want anonymity — currently showing names
+        showAuthor={currentUser?.access !== 'manager'}
         title="Team comments"
+      />
+
+      {/* ── Rotating question comments ── */}
+      <CommentsFeed
+        responses={filteredResponses}
+        showAuthor={currentUser?.access !== 'manager'}
+        title="Rotating question comments"
+        commentField="rotatingComment"
+        scoreField="rotatingScore"
       />
     </div>
   )

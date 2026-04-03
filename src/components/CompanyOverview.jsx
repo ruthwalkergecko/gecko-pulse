@@ -169,13 +169,22 @@ export default function CompanyOverview({
           )}
         </div>
 
-        {/* Comments */}
+        {/* Week comments */}
         <CommentsFeed
           responses={filteredResponses}
           showAuthor={true}
           title="Comments this period"
         />
       </div>
+
+      {/* ── Rotating question comments ── */}
+      <CommentsFeed
+        responses={filteredResponses}
+        showAuthor={true}
+        title="Rotating question comments"
+        commentField="rotatingComment"
+        scoreField="rotatingScore"
+      />
     </div>
   )
 }

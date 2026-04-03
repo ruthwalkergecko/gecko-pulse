@@ -9,11 +9,11 @@ const PAGE_SIZE = 10
 /**
  * Scrollable comments feed with pagination.
  */
-export default function CommentsFeed({ responses, showAuthor = true, title = 'Comments' }) {
+export default function CommentsFeed({ responses, showAuthor = true, title = 'Comments', commentField = 'comment', scoreField = 'weekScore' }) {
   const [page, setPage] = useState(1)
 
   const withComments = responses
-    .filter(r => r.comment?.trim().length > 0)
+    .filter(r => r[commentField]?.trim().length > 0)
     .sort((a, b) => b.weekKey.localeCompare(a.weekKey))
 
   const visible = withComments.slice(0, page * PAGE_SIZE)
@@ -37,7 +37,7 @@ export default function CommentsFeed({ responses, showAuthor = true, title = 'Co
 
       <div className="space-y-1 mt-4 stagger">
         {visible.map((r, i) => (
-          <CommentItem key={`${r.id}-${i}`} response={r} showAuthor={showAuthor} />
+          <CommentItem key={`${r.id}-${i}`} response={r} showAuthor={showAuthor} commentField={commentField} scoreField={scoreField} />
         ))}
       </div>
 
@@ -54,8 +54,9 @@ export default function CommentsFeed({ responses, showAuthor = true, title = 'Co
   )
 }
 
-function CommentItem({ response, showAuthor }) {
-  const scoreColor = getScoreColor(response.weekScore)
+function CommentItem({ response, showAuthor, commentField = 'comment', scoreField = 'weekScore' }) {
+  const score = response[scoreField]
+  const scoreColor = getScoreColor(score)
 
   return (
     <div className="flex gap-3 p-3 rounded-xl hover:bg-gecko-card-hover transition-colors group">
@@ -68,7 +69,7 @@ function CommentItem({ response, showAuthor }) {
       <div className="flex-1 min-w-0">
         {/* Comment text */}
         <p className="text-sm text-white/85 leading-relaxed">
-          &ldquo;{response.comment}&rdquo;
+          &ldquo;{response[commentField]}&rdquo;
         </p>
 
         {/* Meta row */}
@@ -84,7 +85,7 @@ function CommentItem({ response, showAuthor }) {
             className="text-xs font-display font-semibold px-1.5 py-0.5 rounded"
             style={{ color: scoreColor, backgroundColor: `${scoreColor}14` }}
           >
-            {formatScore(response.weekScore)}
+            {formatScore(score)}
           </span>
         </div>
       </div>
